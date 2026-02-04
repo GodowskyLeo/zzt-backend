@@ -52,6 +52,9 @@ const corsOptions = {
             'http://localhost:5000',
             'https://barometrnastrojow.com',
             'https://www.barometrnastrojow.com',
+            'http://barometrnastrojow.com',
+            'http://www.barometrnastrojow.com',
+            'http://72.62.119.169',
             'https://api.barometrnastrojow.com',
             // Render.com deployment
             /\.onrender\.com$/
