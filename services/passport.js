@@ -9,7 +9,7 @@ if (process.env.GOOGLE_CLIENT_ID) {
         // FORCE ADAPT: Always use the production API domain for Google callbacks
         // This allows localhost to work if we just want to test auth, but primarily fixes the Production 404 loop
         // irrespective of NODE_ENV settings.
-        callbackURL: 'http://72.62.119.169/api/auth/google/callback',
+        callbackURL: 'https://api.barometrnastrojow.com/api/auth/google/callback',
         scope: ['profile', 'email'],
         proxy: true
     },
