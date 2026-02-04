@@ -6,8 +6,7 @@ const ResourceSchema = new mongoose.Schema({
         required: true
     },
     type: {
-        type: String,
-        enum: ['article', 'video', 'exercise', 'meditation'],
+        type: String, // 'article', 'video', 'exercise', 'meditation', etc.
         required: true
     },
     content: {
@@ -18,8 +17,7 @@ const ResourceSchema = new mongoose.Schema({
         type: String
     },
     category: {
-        type: String,
-        enum: ['anxiety', 'stress', 'mindfulness', 'sleep', 'relationships', 'self-care', 'general'],
+        type: String, // 'anxiety', 'stress', 'mindfulness', 'general', 'zasoby', etc.
         default: 'general'
     },
     thumbnail: {
@@ -30,7 +28,6 @@ const ResourceSchema = new mongoose.Schema({
     },
     difficulty: {
         type: String,
-        enum: ['beginner', 'intermediate', 'advanced'],
         default: 'beginner'
     },
     tags: [{

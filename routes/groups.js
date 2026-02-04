@@ -168,6 +168,30 @@ router.post('/join', async (req, res) => {
     }
 });
 
+// Join public group by ID
+router.post('/:groupId/join', auth, async (req, res) => {
+    try {
+        const group = await Group.findById(req.params.groupId);
+        if (!group) return res.status(404).json({ msg: 'Grupa nie znaleziona' });
+
+        if (group.visibility === 'private') {
+            return res.status(403).json({ msg: 'To jest grupa prywatna. Użyj kodu zaproszenia.' });
+        }
+
+        if (group.members.includes(req.user.id)) {
+            return res.status(400).json({ msg: 'Już jesteś w tej grupie' });
+        }
+
+        group.members.push(req.user.id);
+        await group.save();
+
+        res.json({ msg: 'Dołączono do grupy', groupName: group.name });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Błąd serwera');
+    }
+});
+
 
 
 // Generate/regenerate join code (for leader)
